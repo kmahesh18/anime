@@ -2,8 +2,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Navbar from "./ui/navbar";
-// import "./globals.css";
-import {Outlet} from "react-router-dom"
+import "./globals.css"; 
+// import {Outlet} from "react-router-dom"
 import Footer from "./ui/Footer";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,10 +31,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
         <Navbar/>
-        
-       <Footer/>
+        <div className="min-h-[82vh]">
+          {children}
+        </div>
+        <Footer/>
       </body>
     </html>
   );
