@@ -1,7 +1,7 @@
-import redditicon from "@/assets/icons8-reddit.svg";
-import TelegramIcon from "@/assets/icons8-telegram.svg";
-import discordicon from "@/assets/icons8-discord.svg";
-import xicon from "@/assets/icons8-x.svg";
+import redditicon from "@/public/assets/icons8-reddit.svg";
+import TelegramIcon from "@/public/assets/icons8-telegram.svg";
+import discordicon from "@/public/assets/icons8-discord.svg";
+import xicon from "@/public/assets/icons8-x.svg";
 import Image from "next/image";
 function Footer() {
   const footericons = [
