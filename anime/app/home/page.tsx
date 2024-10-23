@@ -1,6 +1,7 @@
 function Page() {
   return (
-    <div className="flex justify-center items-center min-h-screen bg-black text-white">
+    <div className="flex justify-center items-center min-h-screen bg-black text-white" style={{backgroundImage:"url('https://wallpapergod.com/images/hd/dark-anime-1920X1200-wallpaper-hap3kxf8czba91pc.jpeg')",backgroundSize: "cover",
+      backgroundPosition: "center",}}>
       <div className="p-10">
         <h1 className="flex justify-center font-bold text-6xl mb-8">ANIME HUB</h1>
         <div className=" flex justify-center w-full mb-5">

@@ -87,13 +87,13 @@ function Navbar() {
 
         <div
           className={`
-            absolute inset-y-0 left-0 w-72 bg-black backdrop-blur-md
+            absolute inset-y-0 left-0 w-72 bg-transparent backdrop-md
             transform ${isMenuOpen ? "translate-x-0" : "-translate-x-full"}
-            transition-transform duration-300 ease-in-out
+            transition-transform duration-300 ease-in-out 
           `}
           onClick={(e) => e.stopPropagation()}
         >
-          <nav className="flex-1 py-6 space-y-1">
+          <nav className="flex-1 py-6 space-y-1 ml-5 mt-2">
             {[
               { href: "/home", label: "Home" },
               { href: "/movies", label: "Movies" },
@@ -107,7 +107,7 @@ function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="block px-5 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition duration-200"
+                className="block px-5 py-2 text-base font-bold text-[23] text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition duration-200"
                 onClick={toggleMenu}
               >
                 {item.label}
