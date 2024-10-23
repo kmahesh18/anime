@@ -4,6 +4,7 @@ import Discordicon from "@/public/assets/icons8-discord.svg";
 import Xicon from "@/public/assets/icons8-x.svg";
 import Link from "next/link";
 import Logo from "@/public/assets/logo.jpeg";
+
 import Image from "next/image";
 function Footer() {
   const footericons = [
