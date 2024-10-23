@@ -1,7 +1,7 @@
 function page() {
   return (
     <div>
-      top-airing
+        tv-series
     </div>
   )
 }
