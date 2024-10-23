@@ -1,11 +1,11 @@
-import Redditicon from "@/public/assets/icons8-reddit.svg";
-import TelegramIcon from "@/public/assets/icons8-telegram.svg";
-import Discordicon from "@/public/assets/icons8-discord.svg";
-import Xicon from "@/public/assets/icons8-x.svg";
+"use client";
+import Redditicon from "@/public/assets/icons8-reddit-32.png";
+import TelegramIcon from "@/public/assets/icons8-telegram-32.png";
+import Discordicon from "@/public/assets/icons8-discord-32.png";
+import Xicon from "@/public/assets/icons8-x-32.png";
 import Link from "next/link";
-import Logo from "@/public/assets/logo.jpeg";
-
 import Image from "next/image";
+
 function Footer() {
   const footericons = [
     { name: "discord", href: "https://discord.com/", icon: Discordicon },
@@ -13,20 +13,26 @@ function Footer() {
     { name: "redditicon", href: "https://reddit.com/", icon: Redditicon },
     { name: "xicon", href: "https://x.com/", icon: Xicon },
   ];
+
   return (
-    <div className="bg-black py-4">
-      <div className="flex items-center">
+    <div className="bg-black py-4 justify-center items-center w-full">
+      <div className="flex justify-center items-center ">
         <h2 className="font-bold text-lg text-white px-4">Join Us Now</h2>
         {footericons.map((item) => {
-          const Icon = item.icon;
           return (
             <Link
               href={item.href}
               key={item.name}
-              className="flex justify-center items-center h-16 w-16 rounded-full bg-white mx-4" // Increased circle size
+              className="flex justify-center items-center h-10 w-10 rounded-full bg-white mx-4"
             >
-              <Icon className="h-12 w-12 object-contain text-black" />{" "}
-              {/* Adjusted icon size */}
+              {/* Using the Next.js Image component to render the icon */}
+              <Image
+                src={item.icon}
+                alt={item.name}
+                width={24} // Adjust width as needed
+                height={24} // Adjust height as needed
+                className="object-contain"
+              />
             </Link>
           );
         })}
@@ -35,4 +41,3 @@ function Footer() {
   );
 }
 
-export default Footer;
