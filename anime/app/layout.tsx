@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Navbar from "./ui/navbar";
-// import "./globals.css";
+import "./globals.css";
 import {Outlet} from "react-router-dom"
 import Footer from "./ui/Footer";
 const geistSans = localFont({
