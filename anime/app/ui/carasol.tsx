@@ -1,6 +1,7 @@
 "use client"
 import { useState, useEffect } from 'react';
 import { IAnimeResult } from '@consumet/extensions';
+import Layout from './layout';
 export default function Carousel() {
   const [animeList, setAnimeList] = useState<IAnimeResult[]>([]);
   const [loading, setLoading] = useState(true);
@@ -36,11 +37,12 @@ export default function Carousel() {
   }
 
   return (
-    <div className="bg-black p-10">
+    <div className="flex bg-black pl-10 pr-6">
+      <div className='p-10'>
       <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">
         Top Airing Anime
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-10">
         {animeList.map((item) => (
           <div
             key={item.id}
@@ -63,6 +65,10 @@ export default function Carousel() {
               </div>
           </div>
         ))}
+      </div>
+      </div>
+      <div className=' flex-1 p-10'>
+        <Layout/>
       </div>
     </div>
   );

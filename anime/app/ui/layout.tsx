@@ -35,8 +35,9 @@ function Layout() {
       }
   return (
     <div>
-        <h2 className='text-white'>Top Cast</h2>
-        <div className="grid grid-cols-1 gap-10">
+        <h2 className='font-bold text-2xl p-3 text-white'>Top Cast</h2>
+        <div className='border-l-2'>
+        <div className="m-3 grid grid-cols-1 gap-10">
           {topList.map((item) => (
             <div
               key={item.id}
@@ -58,6 +59,7 @@ function Layout() {
               </div>
             </div>
           ))}
+        </div>
         </div>
     </div>
   )
