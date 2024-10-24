@@ -80,7 +80,7 @@ function Navbar() {
         <div
           className={`
             absolute inset-0 bg-black/30 backdrop-blur-sm
-            ${isMenuOpen ? "opacity-100" : "opacity-0"}
+            ${isMenuOpen ? "opacity-500" : "opacity-0"}
             transition-opacity duration-300
           `}
         />
@@ -111,6 +111,7 @@ function Navbar() {
                 onClick={toggleMenu}
               >
                 {item.label}
+                
               </Link>
             ))}
           </nav>

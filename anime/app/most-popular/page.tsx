@@ -1,6 +1,10 @@
+import Carasol from "../ui/carasol"
+
 function page() {
   return (
-    <div>most poular</div>
+    <div>
+      <Carasol/>
+    </div>
   )
 }
 

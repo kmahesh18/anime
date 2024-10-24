@@ -1,19 +1,19 @@
 "use client";
 import Redditicon from "@/public/assets/icons8-reddit-32.png";
 import TelegramIcon from "@/public/assets/icons8-telegram-32.png";
+// import { usePathname } from "next/navigation";
 import Discordicon from "@/public/assets/icons8-discord-32.png";
 import Xicon from "@/public/assets/icons8-x-32.png";
 import Link from "next/link";
 import Image from "next/image";
 
-function Footer() {
+export default function Footer() {
   const footericons = [
     { name: "discord", href: "https://discord.com/", icon: Discordicon },
     { name: "telegramicon", href: "https://telegram.com/", icon: TelegramIcon },
     { name: "redditicon", href: "https://reddit.com/", icon: Redditicon },
     { name: "xicon", href: "https://x.com/", icon: Xicon },
   ];
-
   return (
     <div className="bg-black py-4 justify-center items-center w-full">
       <div className="flex justify-center items-center ">

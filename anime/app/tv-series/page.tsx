@@ -1,7 +1,9 @@
+import Carasol from "../ui/carasol"
+
 function page() {
   return (
     <div>
-        tv-series
+        <Carasol/>
     </div>
   )
 }
