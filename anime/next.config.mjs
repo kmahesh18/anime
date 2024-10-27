@@ -1,3 +1,4 @@
+import { withNextVideo } from "next-video/process";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack(config) {
@@ -11,11 +12,12 @@ const nextConfig = {
   
   // Configure image domains
   images: {
-    domains: ['cdn.noitatnemucod.net'],
+    domains: ['cdn.noitatnemucod.net','gogocdn.net'
+    ],
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'cdn.noitatnemucod.net',
+        hostname: 'gogocdn.net',
         port: '',
         pathname: '/**'
       }
@@ -28,4 +30,4 @@ const nextConfig = {
 };
 
 // Use ES modules export
-export default nextConfig;
+export default withNextVideo(nextConfig);

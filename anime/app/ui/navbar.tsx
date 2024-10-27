@@ -47,14 +47,15 @@ function Navbar() {
               {[
                 { href: "/home", label: "Home" },
                 { href: "/movies", label: "Movies" },
-                { href: "/tv-series", label: "TV Series" },
-                { href: "/most-popular", label: "Most Popular" },
                 { href: "/top-airing", label: "Top Airing" },
+                {href:"/genre",label:"Explore"},
+                { href: "/most-popular", label: "Most Popular" },
+                { href: "/anime-list", label: "List of Anime" }
               ].map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="px-4 py-2 font-medium text-white hover:text-gray-300 hover:bg-gray-800 rounded-lg transition duration-200"
+                    className="px-4 py-2 font-extrabold text-[20px] text-white hover:text-gray-300 hover:bg-gray-800 rounded-lg transition duration-200"
                   >
                     {item.label}
                   </Link>
@@ -97,9 +98,10 @@ function Navbar() {
             {[
               { href: "/home", label: "Home" },
               { href: "/movies", label: "Movies" },
-              { href: "/tv-series", label: "TV Series" },
               { href: "/most-popular", label: "Most Popular" },
               { href: "/top-airing", label: "Top Airing" },
+              {href:"anime-list",label:"List of Anime "},
+              {href:"/genre",label:"Explore"},
               { href: "/about", label: "About" },
               { href: "/contact", label: "Contact" },
               { href: "/help", label: "Help" },
