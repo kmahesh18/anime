@@ -92,7 +92,7 @@ export const Card: React.FC<{ item: AnimeCardData }> = ({
         onClick={toanimepage}
       >
         {/* Image section */}
-        <div className="relative aspect-[1] overflow-hidden">
+        <div className="relative aspect-[7/9] overflow-hidden">
           <Image 
             src={item.image || "/api/placeholder/250/375"}
             alt={

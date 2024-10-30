@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { TailSpin } from "react-loader-spinner";
 import { TbWorldShare } from "react-icons/tb";
-// import { useRouter } from "next/navigation";
 import TelegramIcon from "@/public/assets/icons8-telegram-32.png";
 import Discordicon from "@/public/assets/icons8-discord-32.png";
 import Xicon from "@/public/assets/icons8-x-32.png";
@@ -29,25 +28,24 @@ function Page({ duration }: { duration: string }) {
   const [error, setError] = useState<string | null>(null);
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
   const searchParams = useSearchParams();
-  const [sources,setsources] = useState<ISource>()
+  const [sources, setsources] = useState<ISource>()
   const unparsedata = localStorage.getItem('animeInfo')
   const data = JSON.parse(unparsedata)
 
 
-  
-  const fetchsources = async()=>{
+
+  const fetchsources = async () => {
     const sources = await axios.get(`/api/episodeSources/${data.episodes[0].id}`)
     return sources
   }
 
-async  function visitLInk()
-{  
+  async function visitLInk() {
     const sources = await fetchsources();
-    console.log(sources)
+    localStorage.setItem('sources',JSON.stringify(sources.data))
     router.push(`/watch/${data.id}?epid=${data?.episodes[0].id}`);
-}
+  }
 
-console.log(sources)
+  console.log(sources)
 
   if (error)
     return (
@@ -57,7 +55,7 @@ console.log(sources)
     );
 
   return (
-    <div className="min-h-screen bg-[#0D0D0D] bg-opacity-95 text-gray-100 font-sans">
+    <div className="min-h-screen bg-black/95 backdrop-blur-md bg-opacity-95 pt-12 text-gray-100 font-sans">
       <div className="container mx-auto p-0">
         {data && (
           <div className="flex flex-col lg:flex-row gap-8">
@@ -80,15 +78,15 @@ console.log(sources)
             {/* Middle Section - Main Content */}
             <div className="lg:w-1/2 flex flex-col">
               <h1 className="text-4xl font-bold mb-4 leading-tight">{data?.title}</h1>
-              
+
               {/* Badges */}
               <div className="flex flex-wrap gap-3 mb-6">
                 <span className="px-4 py-1.5 bg-gray-800 rounded-full text-sm font-medium cursor-pointer">PG-13</span>
                 <span className="px-4 py-1.5 bg-white rounded-full text-sm font-medium text-black cursor-pointer">HD</span>
                 <span className="px-4 py-1.5 bg-gray-800 rounded-full text-sm font-medium flex items-center gap-2 ">
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 6H4V18H20V6Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M12 6V18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M20 6H4V18H20V6Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M12 6V18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                   {data?.episodes.length}
                 </span>
@@ -101,7 +99,7 @@ console.log(sources)
                 <p className={isDescriptionExpanded ? "" : "line-clamp-3"}>
                   {data.description}
                 </p>
-                <button 
+                <button
                   onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
                   className="text-white-500 hover:text-white-800 transition-colors mt-2 font-medium text-lg"
                 >
@@ -113,7 +111,7 @@ console.log(sources)
               <div className="flex gap-4 mb-8">
                 <button className="bg-white text-black hover:bg-black hover:text-white transition-colors px-8 py-3 rounded-full font-medium flex items-center gap-2 shadow-lg shadow-white-600/20" onClick={visitLInk}>
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 3L19 12L5 21V3Z" fill="currentColor"/>
+                    <path d="M5 3L19 12L5 21V3Z" fill="currentColor" />
                   </svg>
                   {/* <Link href={`/watch/${data.id}/${}`} >
     Watch Now
@@ -134,26 +132,26 @@ console.log(sources)
                   </div>
                 </div>
                 <div className="flex gap-2">
-    {[
-      { platform: 'telegram', icon: TelegramIcon },
-      { platform: 'twitter', icon: Xicon },
-      { platform: 'reddit', icon: Redditicon },
-      { platform: 'discord', icon: Discordicon }
-    ].map(({ platform, icon }) => (
-      <button
-        key={platform}
-        className="w-8 h-8 rounded-full bg-gray-700 hover:bg-gray-600 flex items-center justify-center overflow-hidden"
-      >
-        <Image
-          src={icon}
-          alt={`Share on ${platform}`}
-          width={20}
-          height={20}
-          className="object-contain"
-        />
-      </button>
-    ))}
-  </div>
+                  {[
+                    { platform: 'telegram', icon: TelegramIcon },
+                    { platform: 'twitter', icon: Xicon },
+                    { platform: 'reddit', icon: Redditicon },
+                    { platform: 'discord', icon: Discordicon }
+                  ].map(({ platform, icon }) => (
+                    <button
+                      key={platform}
+                      className="w-8 h-8 rounded-full bg-gray-700 hover:bg-gray-600 flex items-center justify-center overflow-hidden"
+                    >
+                      <Image
+                        src={icon}
+                        alt={`Share on ${platform}`}
+                        width={20}
+                        height={20}
+                        className="object-contain"
+                      />
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -165,7 +163,7 @@ console.log(sources)
                 <InfoItem label="Premiered" value={data.premiered || "Fall 1999"} />
                 <InfoItem label="Duration" value={data.duration} />
                 <InfoItem label="Status" value={data.status || "Currently Airing"} />
-                
+
                 {/* Genres */}
                 <div className="pt-4 border-t border-gray-800">
                   <h3 className="text-lg font-semibold mb-3">Genres</h3>
